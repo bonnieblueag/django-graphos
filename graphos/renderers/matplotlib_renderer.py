@@ -4,7 +4,7 @@ from .base import BaseChart
 from matplotlib.ticker import FormatStrFormatter
 
 import matplotlib.pyplot as plt
-import StringIO
+import io
 import base64
 
 
@@ -31,7 +31,7 @@ class LineChart(BaseMatplotlibChart):
         for i in range(1, len(serieses)):
             ax.plot(serieses[0], serieses[i])
         ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
-        out = StringIO.StringIO()
+        out = io.StringIO()
         plt.savefig(out)
         out.seek(0)
         return "data:image/png;base64,%s" % base64.encodestring(out.read())
@@ -46,7 +46,7 @@ class BarChart(BaseMatplotlibChart):
         for i in range(1, len(serieses)):
             ax.bar(serieses[0], serieses[1], 0.35)
         ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
-        out = StringIO.StringIO()
+        out = io.StringIO()
         plt.savefig(out)
         out.seek(0)
         return "data:image/png;base64,%s" % base64.encodestring(out.read())

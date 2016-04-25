@@ -65,10 +65,10 @@ class TestSources(TestCase):
     def test_model_data_source(self):
         data = [
             ['year', 'sales', 'expenses'],
-            [u'2004', 1000, 400],
-            [u'2005', 1170, 460],
-            [u'2006', 660, 1120],
-            [u'2007', 1030, 540]
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
         ]
         #Create some rows
         Account.objects.create(year="2004", sales=1000,

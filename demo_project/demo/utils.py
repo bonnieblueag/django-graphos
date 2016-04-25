@@ -124,4 +124,4 @@ def create_demo_mongo():
     header = data[0]
     data_only = data[1:]
     for row in data_only:
-        docs.insert(dict(zip(header, row)))
+        docs.insert(dict(list(zip(header, row))))

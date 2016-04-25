@@ -17,7 +17,7 @@ from .custom_charts import CustomGchart, CustomFlot, CustomFlot2
 
 import json
 import time
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import markdown
 import datetime
 import pymongo
@@ -167,7 +167,7 @@ def home(request):
 def tutorial(request):
     chart = flot.LineChart(SimpleDataSource(data=data), html_id="line_chart")
     url = "https://raw.github.com/agiliq/django-graphos/master/README.md"
-    str = urllib2.urlopen(url).read()
+    str = urllib.request.urlopen(url).read()
     readme = markdown.markdown(str)
     context = {'chart': chart, "readme": readme}
     return render(request, 'demo/tutorial.html', context)

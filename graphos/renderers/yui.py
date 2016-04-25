@@ -10,7 +10,7 @@ class BaseYuiChart(BaseChart):
         data_only = self.get_data()[1:]
         rows = []
         for row in data_only:
-            rows.append(dict(zip(header, row)))
+            rows.append(dict(list(zip(header, row))))
 
         return json.dumps(rows)
 
